@@ -15,6 +15,7 @@ public class BallAgent : Agent
 
     private Rigidbody rb;
     private List<Transform> checkpoints;
+    public Vector3 originalPostion;
 
     void Start()
     {
@@ -36,7 +37,7 @@ public class BallAgent : Agent
 
     public override void OnEpisodeBegin()
     {
-        transform.position = new Vector3(0, 0, 0);
+        transform.position = originalPostion;
         SetReward(0);
     }
 
@@ -62,11 +63,15 @@ public class BallAgent : Agent
 
     public override void OnActionReceived(ActionBuffers actions)
     {
-        var moveHorizontal = Mathf.Clamp(actions.ContinuousActions[0], -1f, 1f);
-        var moveVertical = Mathf.Clamp(actions.ContinuousActions[1], -1f, 1f);
+        var moveHorizontal = Mathf.Clamp(actions.ContinuousActions[0], -10f, 10f);
+        var moveVertical = Mathf.Clamp(actions.ContinuousActions[1], -10f, 10f);
+        Debug.Log("click works");
+        Debug.Log(moveHorizontal);
+        Debug.Log(moveVertical);
 
         // Apply movement
         rb.AddForce(new Vector3(moveHorizontal, 0, moveVertical));
+        Debug.Log("force applied");
 
         // Check for falling through the invisible floor
         RaycastHit hit;
