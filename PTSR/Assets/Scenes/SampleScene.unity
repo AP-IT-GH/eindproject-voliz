@@ -303,7 +303,7 @@ Transform:
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.24522053, z: -0, w: 0.9694674}
-  m_LocalPosition: {x: -2.408, y: 2.138, z: -12.516}
+  m_LocalPosition: {x: -2.513, y: 2.138, z: -14.116}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -511,7 +511,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1260409856}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 00e11d0c37a4c1c43aa85c1b507bf0f0, type: 3}
   m_Name: 
@@ -523,9 +523,12 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 0
+  sideLayer:
+    serializedVersion: 2
+    m_Bits: 0
   rewardPerCheckpoint: 10
-  penaltyPerFall: -5
-  speed: 10
+  penaltyForFalling: -50
+  extraRewardForFinish: 100
 --- !u!114 &1260409858
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -550,7 +553,7 @@ MonoBehaviour:
     hasUpgradedBrainParametersWithActionSpec: 1
   m_Model: {fileID: 0}
   m_InferenceDevice: 0
-  m_BehaviorType: 0
+  m_BehaviorType: 1
   m_BehaviorName: Ball
   TeamId: 0
   m_UseChildSensors: 1
