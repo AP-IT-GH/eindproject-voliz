@@ -1,4 +1,35 @@
 {
+    "jumper": {
+        "checkpoints": [
+            {
+                "steps": 499937,
+                "file_path": "results\\ballAgent\\jumper\\jumper-499937.onnx",
+                "reward": 88.37999620437623,
+                "creation_time": 1716296828.132478,
+                "auxillary_file_paths": [
+                    "results\\ballAgent\\jumper\\jumper-499937.pt"
+                ]
+            },
+            {
+                "steps": 967814,
+                "file_path": "results\\ballAgent\\jumper\\jumper-967814.onnx",
+                "reward": 60.96636204286055,
+                "creation_time": 1716298303.4840815,
+                "auxillary_file_paths": [
+                    "results\\ballAgent\\jumper\\jumper-967814.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 967814,
+            "file_path": "results\\ballAgent\\jumper.onnx",
+            "reward": 60.96636204286055,
+            "creation_time": 1716298303.4840815,
+            "auxillary_file_paths": [
+                "results\\ballAgent\\jumper\\jumper-967814.pt"
+            ]
+        }
+    },
     "metadata": {
         "stats_format_version": "0.3.0",
         "mlagents_version": "0.30.0",

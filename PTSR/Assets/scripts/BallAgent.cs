@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Unity.MLAgents;
@@ -9,19 +8,20 @@ public class BallAgent : Agent
 {
     public LayerMask groundLayer;
     public LayerMask sideLayer;
-    public float rewardPerCheckpoint = 10f;
-    public float penaltyForFalling = -50f;
-    public float extraRewardForFinish = 100f;
+    public float rewardPerCheckpoint = 1f;
+    public float penaltyForFalling = -15f;
+    public float extraRewardForFinish = 10f;
+    public float stepPenalty = -0.01f;
 
     private Rigidbody rb;
     private List<Transform> checkpoints;
-    public Vector3 originalPostion;
+    private Vector3 originalPostion;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         checkpoints = new List<Transform>();
-
+        originalPostion = transform.position;
         // Assuming all checkpoints are tagged "Checkpoint"
         foreach (GameObject checkpointObject in GameObject.FindGameObjectsWithTag("Checkpoint"))
         {
@@ -29,15 +29,19 @@ public class BallAgent : Agent
         }
 
         // Assuming the invisible floor is tagged "InvisFloor"
-        groundLayer = LayerMask.GetMask("InvisFloor");
+        groundLayer = LayerMask.GetMask("groundLayer");
 
         // Assuming the side bounds are tagged "SideBound"
-        sideLayer = LayerMask.GetMask("SideBound");
+        sideLayer = LayerMask.GetMask("sideLayer");
     }
 
     public override void OnEpisodeBegin()
     {
         transform.position = originalPostion;
+        foreach(Transform checkpoint in checkpoints)
+        {
+            checkpoint.gameObject.SetActive(true);
+        }
         SetReward(0);
     }
 
@@ -60,54 +64,60 @@ public class BallAgent : Agent
             sensor.AddObservation(1f); // Assuming the track width is 1 unit
         }
     }
-
-    public override void OnActionReceived(ActionBuffers actions)
+    void OnCollisionEnter(Collision collision)
     {
-        var moveHorizontal = Mathf.Clamp(actions.ContinuousActions[0], -10f, 10f);
-        var moveVertical = Mathf.Clamp(actions.ContinuousActions[1], -10f, 10f);
-        Debug.Log("click works");
-        Debug.Log(moveHorizontal);
-        Debug.Log(moveVertical);
-
-        // Apply movement
-        rb.AddForce(new Vector3(moveHorizontal, 0, moveVertical));
-        Debug.Log("force applied");
-
-        // Check for falling through the invisible floor
-        RaycastHit hit;
-        if (Physics.Raycast(transform.position, Vector3.down, 1f, groundLayer))
+        if (collision.gameObject.layer == LayerMask.NameToLayer("groundLayer"))
         {
             // Penalize for falling through the floor
             AddReward(penaltyForFalling);
             EndEpisode();
         }
-
-        // Check for hitting a checkpoint
-        bool hitCheckpoint = false;
-        foreach (Transform checkpoint in checkpoints)
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Finish")
         {
-            if (Vector3.Distance(transform.position, checkpoint.position) < 1f)
-            {
-                // Reward for hitting a checkpoint
-                AddReward(rewardPerCheckpoint);
-                hitCheckpoint = true;
-                break;
-            }
-        }
-
-        // Check for hitting the last checkpoint with the "Finish" tag
-        if (hitCheckpoint && gameObject.tag == "Finish")
-        {
-            // Extra reward for finishing
+            
+            
+                // Extra reward for finishing
             AddReward(extraRewardForFinish);
-        }
-
-        if (!hitCheckpoint)
-        {
-            // Continue episode if no checkpoint hit
             EndEpisode();
+            
+        }
+        if (other.gameObject.tag == "Checkpoint")
+        {
+            AddReward(rewardPerCheckpoint);
+            Debug.Log("point gained");
+            other.gameObject.SetActive(false);
         }
     }
+
+    void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.layer == LayerMask.NameToLayer("InvisLayer"))
+        {
+            // Reset the reward if the ball has just exited the floor
+            AddReward(-penaltyForFalling);
+        }
+
+
+    }
+
+
+    public override void OnActionReceived(ActionBuffers actions)
+    {
+        var moveHorizontal = Mathf.Clamp(actions.ContinuousActions[0], -1f, 1f);
+        var moveVertical = Mathf.Clamp(actions.ContinuousActions[1], -1f, 1f);
+
+        // Calculate the desired roll direction based on the input
+        Vector3 desiredRollDirection = new Vector3(moveHorizontal, 0, moveVertical).normalized;
+
+        // Apply torque to simulate rolling motion
+        rb.AddTorque(desiredRollDirection * 10, ForceMode.VelocityChange);
+
+        AddReward(stepPenalty);
+    }
+
 
     public override void Heuristic(in ActionBuffers actionsOut)
     {
