@@ -2,14 +2,12 @@ using UnityEngine;
 
 public class Checkpoint : MonoBehaviour
 {
-    public int checkpointIndex; // The index of this checkpoint
-
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player") || other.CompareTag("Player2"))
+        RaceAgent agent = other.GetComponent<RaceAgent>();
+        if (agent != null)
         {
-            LapManager lapManager = FindObjectOfType<LapManager>();
-            lapManager.PlayerPassedCheckpoint(other.tag, checkpointIndex);
+            agent.CheckpointReached(this);
         }
     }
 }

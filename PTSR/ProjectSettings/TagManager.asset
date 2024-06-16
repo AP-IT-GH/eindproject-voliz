@@ -8,6 +8,8 @@ TagManager:
   - InvisWall
   - Line
   - Player1
+  - InvisFloor
+  - Wall
   layers:
   - Default
   - TransparentFX
