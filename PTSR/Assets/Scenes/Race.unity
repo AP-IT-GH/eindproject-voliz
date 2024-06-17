@@ -504,6 +504,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Kart (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4725149934227378831, guid: a4c02cde3ee67e245b51eb5f0d0e3303,
+        type: 3}
+      propertyPath: m_Layer
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 4737612102132769834, guid: a4c02cde3ee67e245b51eb5f0d0e3303,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -564,10 +569,20 @@ PrefabInstance:
       propertyPath: m_Constraints
       value: 84
       objectReference: {fileID: 0}
+    - target: {fileID: 5056373198569634754, guid: a4c02cde3ee67e245b51eb5f0d0e3303,
+        type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 8192
+      objectReference: {fileID: 0}
     - target: {fileID: 6521627263731040383, guid: a4c02cde3ee67e245b51eb5f0d0e3303,
         type: 3}
       propertyPath: m_IsTrigger
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6521627263731040383, guid: a4c02cde3ee67e245b51eb5f0d0e3303,
+        type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 8192
       objectReference: {fileID: 0}
     - target: {fileID: 7261818637233036450, guid: a4c02cde3ee67e245b51eb5f0d0e3303,
         type: 3}
@@ -904,6 +919,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1770922247971514623, guid: 639cfe2c0fd3a7f49a30169c7995cf10,
+        type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 262144
+      objectReference: {fileID: 0}
     - target: {fileID: 1968122668836155265, guid: 639cfe2c0fd3a7f49a30169c7995cf10,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -954,10 +974,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2321010783790823516, guid: 639cfe2c0fd3a7f49a30169c7995cf10,
+        type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 262144
+      objectReference: {fileID: 0}
     - target: {fileID: 3236980088954882761, guid: 639cfe2c0fd3a7f49a30169c7995cf10,
         type: 3}
       propertyPath: steeringWheel
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3339448021656144693, guid: 639cfe2c0fd3a7f49a30169c7995cf10,
+        type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 262144
       objectReference: {fileID: 0}
     - target: {fileID: 3345734762516303844, guid: 639cfe2c0fd3a7f49a30169c7995cf10,
         type: 3}
@@ -978,6 +1008,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.size
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4265109860140219482, guid: 639cfe2c0fd3a7f49a30169c7995cf10,
+        type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 262144
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
