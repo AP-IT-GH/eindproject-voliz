@@ -7,43 +7,39 @@ using Unity.MLAgents.Actuators;
 
 public class RaceAgent : Agent
 {
-    public Transform[] checkpoints; // Array of checkpoints
+    public Transform[] checkpoints; 
     private int nextCheckpointIndex = 0;
-    public float moveSpeed = 2.0f; // Movement speed
-    public float turnSpeed = 200.0f; // Turning speed
-    public float maxTurnAngle = 45.0f; // Maximum allowable turn angle per step
+    public float moveSpeed = 2.0f; 
+    public float turnSpeed = 200.0f; 
+    public float maxTurnAngle = 45.0f; 
 
-    private Vector3 initialPosition; // Initial position of the agent
-    private Quaternion initialRotation; // Initial rotation of the agent
+    private Vector3 initialPosition; 
+    private Quaternion initialRotation; 
 
-    public RayPerceptionSensorComponent3D raySensor; // Reference to Ray Perception Sensor
+    public RayPerceptionSensorComponent3D raySensor; 
 
-    // Y-coordinate below which the agent is considered to have fallen off
     public float fallHeight = -2.0f;
 
     // Avoidance variables
-    public float avoidSpeed = 1.0f; // Speed at which to avoid obstacles
-    public float collisionRadius = 0.5f; // Radius to detect obstacles
-    public LayerMask obstacleMask; // Layer mask for obstacles
+    public float avoidSpeed = 1.0f; 
+    public float collisionRadius = 0.5f; 
+    public LayerMask obstacleMask; 
 
     // Penalty variables
-    public float collisionPenalty = -0.4f; // Penalty for collision with obstacles
-    public float turnPenalty = -0.01f; // Penalty for turning
+    public float collisionPenalty = -0.4f; 
+    public float turnPenalty = -0.01f; 
 
-    private bool isAvoidingObstacle = false; // Flag to check if avoiding an obstacle
+    private bool isAvoidingObstacle = false; 
 
-    // Stuck detection variables
     private Vector3 lastPosition;
     private int stuckSteps = 0;
-    public int maxStuckSteps = 50; // Maximum steps to consider the agent stuck
+    public int maxStuckSteps = 50; 
 
-    // Timeout handling
-    public int maxStepsPerEpisode = 5000; // Maximum steps per episode
+    public int maxStepsPerEpisode = 5000; 
     private int steps = 0;
 
     public override void Initialize()
     {
-        // Save the initial position and rotation of the agent
         initialPosition = transform.localPosition;
         initialRotation = transform.localRotation;
 
@@ -53,14 +49,12 @@ public class RaceAgent : Agent
 
     public override void OnEpisodeBegin()
     {
-        // Reset the agent and environment at the start of an episode
         nextCheckpointIndex = 0;
 
         // Reset the agent's position and rotation
         transform.localPosition = initialPosition;
         transform.localRotation = initialRotation;
 
-        // Optionally reset any Rigidbody or other physics properties if used
         Rigidbody rb = GetComponent<Rigidbody>();
         if (rb != null)
         {
@@ -68,24 +62,21 @@ public class RaceAgent : Agent
             rb.angularVelocity = Vector3.zero;
         }
 
-        isAvoidingObstacle = false; // Reset the avoidance flag
-        lastPosition = transform.localPosition; // Reset the last position
-        stuckSteps = 0; // Reset the stuck steps counter
-        steps = 0; // Reset the step counter
+        isAvoidingObstacle = false; 
+        lastPosition = transform.localPosition; 
+        stuckSteps = 0; 
+        steps = 0; 
     }
 
     public override void CollectObservations(VectorSensor sensor)
     {
-        // Collect observations from the environment (e.g., positions of checkpoints, distance to next checkpoint)
         sensor.AddObservation(transform.localPosition);
         sensor.AddObservation(checkpoints[nextCheckpointIndex].localPosition);
 
-        // Additional observations: distance and angle to next checkpoint
         Vector3 toNextCheckpoint = checkpoints[nextCheckpointIndex].localPosition - transform.localPosition;
-        sensor.AddObservation(toNextCheckpoint.magnitude); // Distance to next checkpoint
-        sensor.AddObservation(Vector3.Dot(transform.forward, toNextCheckpoint.normalized)); // Alignment with the next checkpoint direction
+        sensor.AddObservation(toNextCheckpoint.magnitude); 
+        sensor.AddObservation(Vector3.Dot(transform.forward, toNextCheckpoint.normalized)); 
 
-        // Ray Perception observations are automatically collected by the sensor component
     }
 
     public override void OnActionReceived(ActionBuffers actionBuffers)
@@ -93,22 +84,17 @@ public class RaceAgent : Agent
         // Increment the step counter
         steps++;
 
-        // Get the actions from the neural network
         var continuousActions = actionBuffers.ContinuousActions;
 
-        // Convert actions to movement and turning
-        float moveZ = Mathf.Clamp(continuousActions[0], 0f, 1f); // Ensure moveZ is positive for forward movement
-        float turn = Mathf.Clamp(continuousActions[1], -1f, 1f); // Turn value between -1 and 1
+        float moveZ = Mathf.Clamp(continuousActions[0], 0f, 1f); 
+        float turn = Mathf.Clamp(continuousActions[1], -1f, 1f); 
 
-        // Calculate movement and turning
         Vector3 forwardMovement = transform.forward * moveZ * moveSpeed * Time.deltaTime;
         float turnAngle = turn * maxTurnAngle * Time.deltaTime;
 
-        // Apply movement and turning to the agent
         transform.localPosition += forwardMovement;
         transform.Rotate(Vector3.up, turnAngle);
 
-        // Apply penalty for turning
         if (Mathf.Abs(turnAngle) > 0.01f)
         {
             AddReward(turnPenalty);
@@ -122,14 +108,13 @@ public class RaceAgent : Agent
             transform.localPosition += forwardMovement;
         }
 
-        // Add a small negative reward for each step to encourage faster completion
         AddReward(-0.001f);
 
-        // Check if the agent has fallen off
+      
         if (transform.localPosition.y < fallHeight)
         {
-            // Agent has fallen off, reset the episode
-            SetReward(-1.0f); // Penalize for falling off
+           
+            SetReward(-1.0f); 
             EndEpisode();
         }
 
@@ -139,8 +124,8 @@ public class RaceAgent : Agent
             stuckSteps++;
             if (stuckSteps > maxStuckSteps)
             {
-                // Agent is stuck, end the episode
-                SetReward(-1.0f); // Penalize for getting stuck
+               
+                SetReward(-1.0f); 
                 EndEpisode();
             }
         }
@@ -148,23 +133,21 @@ public class RaceAgent : Agent
         {
             stuckSteps = 0; // Reset the stuck steps counter if the agent is moving
         }
-        lastPosition = transform.localPosition; // Update last position
+        lastPosition = transform.localPosition; 
 
-        // Timeout handling
+        
         if (steps > maxStepsPerEpisode)
         {
-            EndEpisode(); // End the episode if the maximum number of steps is reached
+            EndEpisode(); 
         }
     }
 
     private bool IsColliding()
     {
-        // Check if there are collisions with obstacles using SphereCast or other methods
         RaycastHit hit;
         Vector3 raycastDirection = transform.forward;
         if (Physics.SphereCast(transform.position, collisionRadius, raycastDirection, out hit, 1.0f, obstacleMask))
         {
-            // Check if the collided object is not a checkpoint
             if (!IsCheckpoint(hit.collider.gameObject))
             {
                 return true;
@@ -175,7 +158,7 @@ public class RaceAgent : Agent
 
     private bool IsCheckpoint(GameObject obj)
     {
-        // Check if the collided object is a checkpoint
+        
         foreach (Transform checkpoint in checkpoints)
         {
             if (obj.transform.IsChildOf(checkpoint))
@@ -188,15 +171,13 @@ public class RaceAgent : Agent
 
     private Vector3 AvoidObstacle()
     {
-        // Enhanced obstacle avoidance mechanism
         RaycastHit hit;
         Vector3 raycastDirection = transform.forward;
         if (Physics.SphereCast(transform.position, collisionRadius, raycastDirection, out hit, 1.0f, obstacleMask))
         {
             Vector3 avoidDirection = Vector3.zero;
-            // Calculate the direction to avoid the obstacle
             avoidDirection = (transform.position - hit.point).normalized;
-            avoidDirection.y = 0; // Keep the movement in the horizontal plane
+            avoidDirection.y = 0; 
             return avoidDirection * avoidSpeed * Time.deltaTime;
         }
         return Vector3.zero;
@@ -206,10 +187,8 @@ public class RaceAgent : Agent
     {
         if (other.CompareTag("Wall"))
         {
-            // Set avoidance flag
             isAvoidingObstacle = true;
 
-            // Apply penalty for collision
             AddReward(collisionPenalty);
         }
     }
@@ -218,7 +197,6 @@ public class RaceAgent : Agent
     {
         if (other.CompareTag("Wall"))
         {
-            // Clear avoidance flag
             isAvoidingObstacle = false;
         }
     }
@@ -234,10 +212,10 @@ public class RaceAgent : Agent
     // Method to handle when a checkpoint is reached
     public void CheckpointReached(Checkpoint checkpoint)
     {
-        // Ensure the checkpoint is the next expected one
+     
         if (checkpoint == checkpoints[nextCheckpointIndex].GetComponent<Checkpoint>())
         {
-            AddReward(1.0f); // Reward for reaching the checkpoint
+            AddReward(1.0f); 
             nextCheckpointIndex = (nextCheckpointIndex + 1) % checkpoints.Length; // Move to the next checkpoint
         }
     }
