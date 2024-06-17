@@ -749,7 +749,7 @@ PrefabInstance:
     - target: {fileID: 3894958163707525014, guid: a4c02cde3ee67e245b51eb5f0d0e3303,
         type: 3}
       propertyPath: m_BehaviorType
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4725149934227378831, guid: a4c02cde3ee67e245b51eb5f0d0e3303,
         type: 3}
@@ -854,7 +854,7 @@ PrefabInstance:
     - target: {fileID: 9194367955183183514, guid: a4c02cde3ee67e245b51eb5f0d0e3303,
         type: 3}
       propertyPath: m_DetectableTags.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9194367955183183514, guid: a4c02cde3ee67e245b51eb5f0d0e3303,
         type: 3}
@@ -1260,7 +1260,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: StartFinishLine
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7847472506503830051, guid: 5cdf1b2b8a98d6e40a85d1cde3907099, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
