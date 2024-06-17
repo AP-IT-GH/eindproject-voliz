@@ -1,0 +1,65 @@
+{
+    "RaceAgent": {
+        "checkpoints": [
+            {
+                "steps": 387663,
+                "file_path": "results\\Test10\\RaceAgent\\RaceAgent-387663.onnx",
+                "reward": -35.55000114440918,
+                "creation_time": 1718563677.8166142,
+                "auxillary_file_paths": [
+                    "results\\Test10\\RaceAgent\\RaceAgent-387663.pt"
+                ]
+            },
+            {
+                "steps": 441047,
+                "file_path": "results\\Test10\\RaceAgent\\RaceAgent-441047.onnx",
+                "reward": -35.875001549720764,
+                "creation_time": 1718565083.3367326,
+                "auxillary_file_paths": [
+                    "results\\Test10\\RaceAgent\\RaceAgent-441047.pt"
+                ]
+            },
+            {
+                "steps": 499931,
+                "file_path": "results\\Test10\\RaceAgent\\RaceAgent-499931.onnx",
+                "reward": -32.870500564575195,
+                "creation_time": 1718567184.9611142,
+                "auxillary_file_paths": [
+                    "results\\Test10\\RaceAgent\\RaceAgent-499931.pt"
+                ]
+            },
+            {
+                "steps": 999913,
+                "file_path": "results\\Test10\\RaceAgent\\RaceAgent-999913.onnx",
+                "reward": 31.519007802009583,
+                "creation_time": 1718579466.0863926,
+                "auxillary_file_paths": [
+                    "results\\Test10\\RaceAgent\\RaceAgent-999913.pt"
+                ]
+            },
+            {
+                "steps": 1000041,
+                "file_path": "results\\Test10\\RaceAgent\\RaceAgent-1000041.onnx",
+                "reward": 31.519007802009583,
+                "creation_time": 1718579466.2378778,
+                "auxillary_file_paths": [
+                    "results\\Test10\\RaceAgent\\RaceAgent-1000041.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 1000041,
+            "file_path": "results\\Test10\\RaceAgent.onnx",
+            "reward": 31.519007802009583,
+            "creation_time": 1718579466.2378778,
+            "auxillary_file_paths": [
+                "results\\Test10\\RaceAgent\\RaceAgent-1000041.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.30.0",
+        "torch_version": "1.7.1+cu110"
+    }
+}
