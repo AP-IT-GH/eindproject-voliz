@@ -5,26 +5,29 @@ using TMPro;
 public class LapCounter : MonoBehaviour
 {
     public TextMeshProUGUI lapCounterText;
+    public TextMeshProUGUI lapCounterAi;
     private LapManager lapManager;
 
     void Start()
     {
         lapManager = FindObjectOfType<LapManager>();
+        if (lapManager == null)
+        {
+            Debug.LogError("LapManager not found in the scene.");
+            return;
+        }
         UpdateLapCounter();
     }
 
     void UpdateLapCounter()
     {
-        int currentLap = lapManager.playerLaps["Player"];
-        int maxLaps = lapManager.totalLaps;
-        lapCounterText.text = currentLap + " / " + maxLaps + " laps";
+        lapCounterAi.text = lapManager.lapCounterAi;
+        lapCounterText.text = lapManager.lapCounterText;
     }
-
-
 
     void Update()
     {
-         UpdateLapCounter();
+        UpdateLapCounter(); // Optional: Call UpdateLapCounter() every frame if you want the UI to update continuously
     }
 
     public void OnPlayerCompletedLap()

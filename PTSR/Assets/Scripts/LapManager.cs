@@ -1,64 +1,52 @@
 using UnityEngine;
-using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class LapManager : MonoBehaviour
 {
     public int totalLaps = 3; // Total laps required to finish the race
-    private int totalCheckpoints = 2; // Number of checkpoints
+    private int lapCount = 0; // Current lap count
+    private int lapCountAi = 0; 
+    public string lapCounterText = "Lap: 0" ;
+    public string lapCounterAi = "Lap: 0";
 
-    public Dictionary<string, int> playerLaps = new Dictionary<string, int>()
+    public void Start()
     {
-        {"Player", 0},
-        {"Player2", 0}
-    };
-    private Dictionary<string, List<int>> playerCheckpoints = new Dictionary<string, List<int>>();
-    private bool raceFinished = false;
-
-    void Start()
-    {
-        playerLaps["Player"] = 0;
-        playerLaps["Player2"] = 0;
-        playerCheckpoints["Player"] = new List<int>();
-        playerCheckpoints["Player2"] = new List<int>();
+        lapCounterText = "Lap: " + lapCount;
+        lapCounterAi = "Ai Lap: " + lapCountAi;
     }
-
-    public void PlayerPassedCheckpoint(string playerTag, int checkpointIndex)
+    public void IncrementLap()
     {
-        if (raceFinished) return;
-
-        // Ensure the checkpoints are passed in order
-        if (!playerCheckpoints[playerTag].Contains(checkpointIndex) &&
-            (playerCheckpoints[playerTag].Count == 0 || playerCheckpoints[playerTag].Count == checkpointIndex))
+        lapCount++;
+        lapCounterText = "Lap: " + lapCount;
+        Debug.Log("Current Lap: " + lapCount);
+        if (lapCount == totalLaps)
         {
-            playerCheckpoints[playerTag].Add(checkpointIndex);
+            
+            LoadFinishScene();
+        }
+    }
+    public void IncrementLapAi()
+    {
+        lapCountAi++;
+        lapCounterAi = "Ai Lap: " + lapCountAi;
+        Debug.Log("Current Lap: " + lapCountAi);
+        if (lapCountAi == totalLaps)
+        {
+
+            LoadLoseScene();
         }
     }
 
-    public bool PlayerHasPassedAllCheckpoints(string playerTag)
+    public int GetCurrentLap()
     {
-        // Ensure the playerTag is valid
-        if (!playerCheckpoints.ContainsKey(playerTag))
-        {
-            Debug.LogError("Player tag " + playerTag + " not found in dictionary.");
-            return false;
-        }
-
-        return playerCheckpoints[playerTag].Count == totalCheckpoints;
+        return lapCount;
     }
-
-    public void PlayerCompletedLap(string playerTag)
+    private void LoadFinishScene()
     {
-        playerLaps[playerTag]++;
-        Debug.Log(playerTag + " completed lap " + playerLaps[playerTag]);
-
-        if (playerLaps[playerTag] >= totalLaps)
-        {
-            raceFinished = true;
-            Debug.Log(playerTag + " Wins!");
-            // Add your logic here to handle end of race (e.g., show win screen)
-        }
-
-        // Clear checkpoints for the player after completing the lap
-        playerCheckpoints[playerTag].Clear();
+        SceneManager.LoadScene("Finish"); // Replace "Finish" with the exact name of your scene
+    }
+    private void LoadLoseScene()
+    {
+        SceneManager.LoadScene("Lose"); // Replace "Finish" with the exact name of your scene
     }
 }
