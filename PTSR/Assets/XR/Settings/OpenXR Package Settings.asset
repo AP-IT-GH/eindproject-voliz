@@ -1,5 +1,8 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+<<<<<<< HEAD
+--- !u!114 &-8308828826067344742
+=======
 --- !u!114 &-8854363265155335270
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -826,6 +829,7 @@ MonoBehaviour:
   targetQuest: 1
   targetQuest2: 1
 --- !u!114 &-1172817172140820039
+>>>>>>> 41bbf0deb6357e7d0a71422d407800aacee75e8b
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -858,6 +862,9 @@ MonoBehaviour:
   extensionStrings:
   - XR_KHR_binding_modification
   - XR_EXT_dpad_binding
+<<<<<<< HEAD
+--- !u!114 &-7381427564257256771
+=======
 --- !u!114 &-683116621675046081
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1113,6 +1120,7 @@ MonoBehaviour:
   priority: 0
   required: 0
 --- !u!114 &3106007187561870912
+>>>>>>> 41bbf0deb6357e7d0a71422d407800aacee75e8b
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1125,25 +1133,28 @@ MonoBehaviour:
   m_Name: Standalone
   m_EditorClassIdentifier: 
   features:
-  - {fileID: 7518038608768028361}
-  - {fileID: -1172817172140820039}
-  - {fileID: 3464797269017700928}
-  - {fileID: 4597542112969784031}
-  - {fileID: 5596369528600574411}
-  - {fileID: 6837655585392938503}
-  - {fileID: 8132473011062752379}
-  - {fileID: -8381471630446657424}
-  - {fileID: -4686302625333419807}
-  - {fileID: 7432151437584577790}
-  - {fileID: -8098638135652761112}
-  - {fileID: 5239688930507617514}
-  - {fileID: 1545411440974952597}
-  - {fileID: -1760310302749323583}
-  - {fileID: 6632688957468343689}
-  - {fileID: 7510744202355645248}
+  - {fileID: 3135255303223167624}
+  - {fileID: -8308828826067344742}
+  - {fileID: 8378327837984832207}
+  - {fileID: 6924931977396823300}
+  - {fileID: -3786559133288187129}
+  - {fileID: -3493571600618777909}
+  - {fileID: 343844491059317465}
+  - {fileID: -5452984148944319539}
+  - {fileID: 721033376096134632}
+  - {fileID: -9095080708273783}
+  - {fileID: 1241062068554944039}
+  - {fileID: -2329916451077534977}
+  - {fileID: 5523039783379438055}
+  - {fileID: -3479351862125519735}
+  - {fileID: -2322334027087426566}
+  - {fileID: 6587715386928573180}
   m_renderMode: 1
   m_depthSubmissionMode: 0
   m_symmetricProjection: 0
+<<<<<<< HEAD
+--- !u!114 &-5452984148944319539
+=======
 --- !u!114 &3221974473686605706
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1240,6 +1251,7 @@ MonoBehaviour:
   priority: 0
   required: 0
 --- !u!114 &3842276971068545467
+>>>>>>> 41bbf0deb6357e7d0a71422d407800aacee75e8b
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1249,7 +1261,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0f6bfdbcb316ed242b30a8798c9eb853, type: 3}
-  m_Name: KHRSimpleControllerProfile Android
+  m_Name: KHRSimpleControllerProfile Standalone
   m_EditorClassIdentifier: 
   m_enabled: 0
   nameUi: Khronos Simple Controller Profile
@@ -1259,7 +1271,7 @@ MonoBehaviour:
   company: Unity
   priority: 0
   required: 0
---- !u!114 &3882225753762235883
+--- !u!114 &-3786559133288187129
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1269,7 +1281,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5019471fb2174e5c852ecd4047163007, type: 3}
-  m_Name: HandInteractionProfile Android
+  m_Name: HandInteractionProfile Standalone
   m_EditorClassIdentifier: 
   m_enabled: 0
   nameUi: Hand Interaction Profile
@@ -1279,7 +1291,11 @@ MonoBehaviour:
   company: Unity
   priority: 0
   required: 0
+<<<<<<< HEAD
+--- !u!114 &-3493571600618777909
+=======
 --- !u!114 &4153123655755322672
+>>>>>>> 41bbf0deb6357e7d0a71422d407800aacee75e8b
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1288,6 +1304,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
+<<<<<<< HEAD
+  m_Script: {fileID: 11500000, guid: e5315f812f023cf4ebf26f7e5d2d70f2, type: 3}
+  m_Name: HPReverbG2ControllerProfile Standalone
+  m_EditorClassIdentifier: 
+  m_enabled: 0
+  nameUi: HP Reverb G2 Controller Profile
+  version: 0.0.1
+  featureIdInternal: com.unity.openxr.feature.input.hpreverb
+  openxrExtensionStrings: XR_EXT_hp_mixed_reality_controller
+  company: Unity
+  priority: 0
+  required: 0
+--- !u!114 &-3479351862125519735
+=======
   m_Script: {fileID: 11500000, guid: 9c5b5af5107e35a43818d5411328bfc3, type: 3}
   m_Name: DPadInteraction Standalone
   m_EditorClassIdentifier: 
@@ -1313,6 +1343,7 @@ MonoBehaviour:
   - XR_KHR_binding_modification
   - XR_EXT_dpad_binding
 --- !u!114 &4405791075798290318
+>>>>>>> 41bbf0deb6357e7d0a71422d407800aacee75e8b
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1322,7 +1353,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f028123e2efe1d443875bc7609b4a98b, type: 3}
-  m_Name: PalmPoseInteraction Android
+  m_Name: PalmPoseInteraction Standalone
   m_EditorClassIdentifier: 
   m_enabled: 0
   nameUi: Palm Pose
@@ -1332,6 +1363,9 @@ MonoBehaviour:
   company: Unity
   priority: 0
   required: 0
+<<<<<<< HEAD
+--- !u!114 &-2329916451077534977
+=======
 --- !u!114 &4597542112969784031
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1458,6 +1492,7 @@ MonoBehaviour:
   m_depthSubmissionMode: 0
   m_symmetricProjection: 0
 --- !u!114 &5239688930507617514
+>>>>>>> 41bbf0deb6357e7d0a71422d407800aacee75e8b
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1478,6 +1513,9 @@ MonoBehaviour:
   priority: 0
   required: 0
   ignoreValidationErrors: 0
+<<<<<<< HEAD
+--- !u!114 &-2322334027087426566
+=======
 --- !u!114 &5242957606263712313
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1605,6 +1643,7 @@ MonoBehaviour:
   priority: 0
   required: 0
 --- !u!114 &6632688957468343689
+>>>>>>> 41bbf0deb6357e7d0a71422d407800aacee75e8b
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1626,6 +1665,9 @@ MonoBehaviour:
   required: 0
   cacheSize: 1048576
   perThreadCacheSize: 51200
+<<<<<<< HEAD
+--- !u!114 &-9095080708273783
+=======
 --- !u!114 &6641605937142491565
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1709,6 +1751,7 @@ MonoBehaviour:
   priority: 0
   required: 0
 --- !u!114 &7432151437584577790
+>>>>>>> 41bbf0deb6357e7d0a71422d407800aacee75e8b
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1728,7 +1771,7 @@ MonoBehaviour:
   company: Unity
   priority: 0
   required: 0
---- !u!114 &7510744202355645248
+--- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1737,9 +1780,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d6ccd3d0ef0f1d458e69421dccbdae1, type: 3}
-  m_Name: ValveIndexControllerProfile Standalone
+  m_Script: {fileID: 11500000, guid: 9f0ebc320a151d3408ea1e9fce54d40e, type: 3}
+  m_Name: OpenXR Package Settings
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
+  Keys: 01000000
+  Values:
+  - {fileID: -7381427564257256771}
+--- !u!114 &343844491059317465
+=======
   m_enabled: 0
   nameUi: Valve Index Controller Profile
   version: 0.0.1
@@ -1789,6 +1838,7 @@ MonoBehaviour:
   priority: 0
   required: 0
 --- !u!114 &8132473011062752379
+>>>>>>> 41bbf0deb6357e7d0a71422d407800aacee75e8b
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1808,7 +1858,11 @@ MonoBehaviour:
   company: Unity
   priority: 0
   required: 0
+<<<<<<< HEAD
+--- !u!114 &721033376096134632
+=======
 --- !u!114 &8265600019973729359
+>>>>>>> 41bbf0deb6357e7d0a71422d407800aacee75e8b
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1817,6 +1871,40 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
+<<<<<<< HEAD
+  m_Script: {fileID: 11500000, guid: c4b862ee14fb479fbfe5fffe655d3ed3, type: 3}
+  m_Name: MetaQuestTouchProControllerProfile Standalone
+  m_EditorClassIdentifier: 
+  m_enabled: 1
+  nameUi: Meta Quest Touch Pro Controller Profile
+  version: 0.0.1
+  featureIdInternal: com.unity.openxr.feature.input.metaquestpro
+  openxrExtensionStrings: XR_FB_touch_controller_pro
+  company: Unity
+  priority: 0
+  required: 0
+--- !u!114 &1241062068554944039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 761fdd4502cb7a84e9ec7a2b24f33f37, type: 3}
+  m_Name: MicrosoftMotionControllerProfile Standalone
+  m_EditorClassIdentifier: 
+  m_enabled: 0
+  nameUi: Microsoft Motion Controller Profile
+  version: 0.0.1
+  featureIdInternal: com.unity.openxr.feature.input.microsoftmotioncontroller
+  openxrExtensionStrings: 
+  company: Unity
+  priority: 0
+  required: 0
+--- !u!114 &3135255303223167624
+=======
   m_Script: {fileID: 11500000, guid: e5315f812f023cf4ebf26f7e5d2d70f2, type: 3}
   m_Name: HPReverbG2ControllerProfile Standalone
   m_EditorClassIdentifier: 
@@ -1829,6 +1917,7 @@ MonoBehaviour:
   priority: 0
   required: 0
 --- !u!114 &8457828723901143786
+>>>>>>> 41bbf0deb6357e7d0a71422d407800aacee75e8b
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1837,6 +1926,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
+<<<<<<< HEAD
+  m_Script: {fileID: 11500000, guid: 486b5e28864f9a94b979b9620ce5006d, type: 3}
+  m_Name: ConformanceAutomationFeature Standalone
+  m_EditorClassIdentifier: 
+  m_enabled: 0
+  nameUi: Conformance Automation
+  version: 0.0.1
+  featureIdInternal: com.unity.openxr.feature.conformance
+  openxrExtensionStrings: XR_EXT_conformance_automation
+  company: Unity
+  priority: 0
+  required: 0
+--- !u!114 &5523039783379438055
+=======
   m_Script: {fileID: 11500000, guid: 4e314dfef9af0904e80129bcc0a79361, type: 3}
   m_Name: HandTracking Standalone
   m_EditorClassIdentifier: 
@@ -1849,6 +1952,7 @@ MonoBehaviour:
   priority: -100
   required: 0
 --- !u!114 &8996381442347121697
+>>>>>>> 41bbf0deb6357e7d0a71422d407800aacee75e8b
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1857,6 +1961,76 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
+<<<<<<< HEAD
+  m_Script: {fileID: 11500000, guid: feeef8d85de8db242bdda70cc7ff5acd, type: 3}
+  m_Name: OculusTouchControllerProfile Standalone
+  m_EditorClassIdentifier: 
+  m_enabled: 1
+  nameUi: Oculus Touch Controller Profile
+  version: 0.0.1
+  featureIdInternal: com.unity.openxr.feature.input.oculustouch
+  openxrExtensionStrings: 
+  company: Unity
+  priority: 0
+  required: 0
+--- !u!114 &6587715386928573180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d6ccd3d0ef0f1d458e69421dccbdae1, type: 3}
+  m_Name: ValveIndexControllerProfile Standalone
+  m_EditorClassIdentifier: 
+  m_enabled: 1
+  nameUi: Valve Index Controller Profile
+  version: 0.0.1
+  featureIdInternal: com.unity.openxr.feature.input.valveindex
+  openxrExtensionStrings: 
+  company: Unity
+  priority: 0
+  required: 0
+--- !u!114 &6924931977396823300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a24be4b5ebfe5f4d8ed1de9b25cb7aa, type: 3}
+  m_Name: HandCommonPosesInteraction Standalone
+  m_EditorClassIdentifier: 
+  m_enabled: 0
+  nameUi: Hand Interaction Poses
+  version: 0.0.1
+  featureIdInternal: com.unity.openxr.feature.input.handinteractionposes
+  openxrExtensionStrings: XR_EXT_hand_interaction
+  company: Unity
+  priority: 0
+  required: 0
+--- !u!114 &8378327837984832207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3cf79659a011bd419c7a2a30eb74e9a, type: 3}
+  m_Name: EyeGazeInteraction Standalone
+  m_EditorClassIdentifier: 
+  m_enabled: 0
+  nameUi: Eye Gaze Interaction Profile
+  version: 0.0.1
+  featureIdInternal: com.unity.openxr.feature.input.eyetracking
+  openxrExtensionStrings: XR_EXT_eye_gaze_interaction
+=======
   m_Script: {fileID: 11500000, guid: f928d0d73a35f294fbe357ca17aa3547, type: 3}
   m_Name: MicrosoftHandInteraction Android
   m_EditorClassIdentifier: 
@@ -1865,6 +2039,7 @@ MonoBehaviour:
   version: 0.0.1
   featureIdInternal: com.unity.openxr.feature.input.handtracking
   openxrExtensionStrings: XR_MSFT_hand_interaction
+>>>>>>> 41bbf0deb6357e7d0a71422d407800aacee75e8b
   company: Unity
   priority: 0
   required: 0
