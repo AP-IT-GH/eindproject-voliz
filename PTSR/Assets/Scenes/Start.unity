@@ -459,6 +459,12 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 988448579250623570, guid: 206da0207ab2a4b4f98d23728232d4d8,
+        type: 3}
+      propertyPath: m_ModelPrefab
+      value: 
+      objectReference: {fileID: 5686134208185136530, guid: 1fd3a7c43c8190f4d8c167ebde694364,
+        type: 3}
     - target: {fileID: 1995129136703877561, guid: 206da0207ab2a4b4f98d23728232d4d8,
         type: 3}
       propertyPath: m_Name
@@ -474,6 +480,12 @@ PrefabInstance:
       propertyPath: m_InteractionManager
       value: 
       objectReference: {fileID: 800709054}
+    - target: {fileID: 4905554406433092464, guid: 206da0207ab2a4b4f98d23728232d4d8,
+        type: 3}
+      propertyPath: m_ModelPrefab
+      value: 
+      objectReference: {fileID: 109434732395451517, guid: 65847589f926b734d9eaed6e25f0046b,
+        type: 3}
     - target: {fileID: 5249033374091709105, guid: 206da0207ab2a4b4f98d23728232d4d8,
         type: 3}
       propertyPath: m_InteractionManager
