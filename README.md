@@ -96,8 +96,8 @@ Elke test is gemarkeerd met een unieke kleur.
 
 #### Waarnemingen:
 - **Test11\RaceAgent (gele lijn)**: Deze agent toont een stabiele stijging in cumulatieve beloning, wat wijst op dat de agent aan het leren is en aan het verbeteren.
-- **Test10\RaceAgent (roze lijn)**: Deze agent toont een stijging maar met enkele fluctuaties, wat wijst op redelijke leerprestaties.
-- **test3\RaceAgent (groene lijn)**: Deze agent toont scherpe dalingen en fluctuaties in de beloning, wat wijst op dat de agent training instabiel is of slecht aan het leren is.
+- **Test10\RaceAgent (roze lijn)**: Deze agent laat een stijging zien, maar met wat schommelingen. Dit betekent dat de agent redelijk goed leert.
+- **test3\RaceAgent (groene lijn)**: Deze agent heeft scherpe dalingen en schommelingen in de beloning, wat aangeeft dat de training instabiel is of dat de agent slecht leert.
 
 - Andere agenten laten wisselende prestaties zien, met sommige negatieve beloningen of vlakke lijnen, wat wijst op weinig tot geen vooruitgang.
 
